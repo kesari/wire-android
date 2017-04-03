@@ -53,6 +53,13 @@ class CallingActivity extends AppCompatActivity with ActivityHelper with Permiss
       case _ =>
     }
 
+    leftV3GroupCall.on(Threading.Ui) {
+      case true =>
+        verbose("left group call, finishing activity")
+        finish()
+      case _ =>
+    }
+
     //ensure activity gets killed to allow content to change if the conv degrades (no need to kill activity on audio call)
     (for {
       degraded <- convDegraded

@@ -44,6 +44,7 @@ import com.waz.zclient.pages.main.conversationlist.views.row.RightIndicatorView;
 import com.waz.zclient.ui.animation.interpolators.penner.Expo;
 import com.waz.zclient.ui.animation.interpolators.penner.Quart;
 import com.waz.zclient.utils.ViewUtils;
+import com.waz.zclient.views.NewConversationListRow;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -339,30 +340,30 @@ public class ConversationListAdapter extends BaseAdapter {
             return getArchiveBorderRow(parent.getContext(), position);
         }
 
-        ConversationListRow conversationListRowItem;
+        NewConversationListRow conversationListRowItem;
 
-        if (convertView == null || !(convertView instanceof ConversationListRow)) {
-            conversationListRowItem = new ConversationListRow(parent.getContext());
-            conversationListRowItem.setStreamMediaPlayerController(streamMediaPlayerController);
-            conversationListRowItem.setConversationActionCallback(conversationActionCallback);
-            conversationListRowItem.setNetworkStore(networkStore);
+        if (convertView == null || !(convertView instanceof NewConversationListRow)) {
+            conversationListRowItem = new NewConversationListRow(parent.getContext());
+            //conversationListRowItem.setStreamMediaPlayerController(streamMediaPlayerController);
+            //conversationListRowItem.setConversationActionCallback(conversationActionCallback);
+            //conversationListRowItem.setNetworkStore(networkStore);
         } else {
-            conversationListRowItem = (ConversationListRow) convertView;
+            conversationListRowItem = (NewConversationListRow) convertView;
 
             // needs redraw due to animation changes
             if (conversationListRowItem.needsRedraw()) {
-                conversationListRowItem = new ConversationListRow(parent.getContext());
-                conversationListRowItem.setStreamMediaPlayerController(streamMediaPlayerController);
-                conversationListRowItem.setConversationActionCallback(conversationActionCallback);
-                conversationListRowItem.setNetworkStore(networkStore);
+                conversationListRowItem = new NewConversationListRow(parent.getContext());
+                //conversationListRowItem.setStreamMediaPlayerController(streamMediaPlayerController);
+                //conversationListRowItem.setConversationActionCallback(conversationActionCallback);
+                //conversationListRowItem.setNetworkStore(networkStore);
             }
         }
 
         conversationListRowItem.setAlpha(1f);
-        conversationListRowItem.setMaxAlpha(maxAlpha);
+        //conversationListRowItem.setMaxAlpha(maxAlpha);
         conversationListRowItem.setId(position);
-        conversationListRowItem.setSwipeable(mode == ConversationListFragment.Mode.NORMAL);
-        conversationListRowItem.showIndicatorView(mode == ConversationListFragment.Mode.NORMAL);
+        //conversationListRowItem.setSwipeable(mode == ConversationListFragment.Mode.NORMAL);
+        //conversationListRowItem.showIndicatorView(mode == ConversationListFragment.Mode.NORMAL);
 
         // integrate model
         final IConversation conversation = getItem(position);
@@ -373,9 +374,9 @@ public class ConversationListAdapter extends BaseAdapter {
             conversationListRowItem.setBackgroundColor(Color.TRANSPARENT);
         }
 
-        conversationListRowItem.setAccentColor(accentColor);
+        //conversationListRowItem.setAccentColor(accentColor);
         conversationListRowItem.setConversation(conversation);
-        conversationListRowItem.setConversationCallback(conversationCallback);
+        //conversationListRowItem.setConversationCallback(conversationCallback);
         conversationListRowItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -383,7 +384,7 @@ public class ConversationListAdapter extends BaseAdapter {
             }
         });
 
-        final ConversationListRow anchorView = conversationListRowItem;
+        final NewConversationListRow anchorView = conversationListRowItem;
         conversationListRowItem.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -504,7 +505,7 @@ public class ConversationListAdapter extends BaseAdapter {
         // run once through the list of all displayed items
         for (int i = 0; i < listView.getChildCount(); i++) {
             if (listView.getChildAt(i) instanceof ConversationListRow) {
-                final ConversationListRow row = (ConversationListRow) listView.getChildAt(i);
+                final NewConversationListRow row = (NewConversationListRow) listView.getChildAt(i);
                 // needs to be called - this view cant be used as a convertView no more
                 row.redraw();
 

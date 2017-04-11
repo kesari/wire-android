@@ -41,7 +41,7 @@ import com.waz.zclient.controllers.singleimage.SingleImageObserver;
 import com.waz.zclient.core.stores.inappnotification.InAppNotificationStoreObserver;
 import com.waz.zclient.core.stores.inappnotification.KnockingEvent;
 import com.waz.zclient.pages.BaseFragment;
-import com.waz.zclient.pages.main.backgroundmain.views.BackgroundFrameLayout;
+import com.waz.zclient.views.BackgroundFrameLayout;
 import com.waz.zclient.pages.main.conversation.SingleImageFragment;
 import com.waz.zclient.pages.main.conversation.SingleImageMessageFragment;
 import com.waz.zclient.pages.main.conversation.SingleImageUserFragment;
@@ -113,7 +113,6 @@ public class MainTabletFragment extends BaseFragment<MainTabletFragment.Containe
         getControllerFactory().getSingleImageController().addSingleImageObserver(this);
         getControllerFactory().getConfirmationController().addConfirmationObserver(this);
         getControllerFactory().getAccentColorController().addAccentColorObserver(this);
-        getControllerFactory().getAccentColorController().addAccentColorObserver(backgroundLayout);
         getControllerFactory().getBackgroundController().addBackgroundObserver(backgroundLayout);
     }
 
@@ -123,7 +122,6 @@ public class MainTabletFragment extends BaseFragment<MainTabletFragment.Containe
         getControllerFactory().getConfirmationController().removeConfirmationObserver(this);
         getControllerFactory().getSingleImageController().removeSingleImageObserver(this);
         getStoreFactory().getInAppNotificationStore().removeInAppNotificationObserver(this);
-        getControllerFactory().getAccentColorController().removeAccentColorObserver(backgroundLayout);
         getControllerFactory().getBackgroundController().removeBackgroundObserver(backgroundLayout);
         super.onStop();
     }

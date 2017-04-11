@@ -846,4 +846,5 @@
     <dimen name="share_extension__send_button__size">36dp</dimen>
 
     <dimen name="conversation_list__row__avatar_size">28dp</dimen>
+    <dimen name="conversation_list__row__title__top">8dp</dimen>
 </resources>

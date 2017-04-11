@@ -60,7 +60,6 @@ class BackgroundFrameLayout(val context: Context, val attrs: AttributeSet, val d
   def this(context: Context) {
     this(context, null)
   }
-
   private def setDrawable(bounds: Rect) {
 
   }

@@ -60,7 +60,6 @@
             android:layout_toStartOf="@+id/conversation_status_pill"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Subtitle"
             android:textColor="@color/white_64"
             android:textSize="@dimen/wire__text_size__small"
             app:font="@string/wire__typeface__light"/>
@@ -82,6 +81,7 @@
             android:background="@drawable/conversation_status_pill"/>
 
         <View
+            android:id="@+id/conversation_separator"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_alignParentBottom="true"
